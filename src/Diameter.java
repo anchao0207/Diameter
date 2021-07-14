@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,10 +9,10 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Diameter {
-	File file;
-	int[][] distance;
-	int[][] usage;
-	List<LinkedList<Integer>> vertices = new LinkedList<>();
+	private File file;
+	private int[][] distance;
+	private int[][] usage;
+	private List<LinkedList<Integer>> vertices = new ArrayList<>();
 	
 	public Diameter(File file) throws FileNotFoundException {
 		this.file=file;
@@ -88,7 +89,7 @@ public class Diameter {
 		}
 	}
 	
-	public String getUsage() {
+	public String UsageToString() {
 		String result="";
 		int n=usage.length;
 		for(int i=0;i<n;i++) {
@@ -98,6 +99,10 @@ public class Diameter {
 			result+="\r";
 		}
 		return result;
+	}
+	
+	public int[][] getUsage(){
+		return usage;
 	}
 	
 	public int getSize() throws FileNotFoundException {
